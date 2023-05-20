@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Funciones Reales | Matemática para Ingenieros</title>
+  <meta name="description" content="Es este curso de análisis matemática se van a abordar temas como funciones,limites,derivadas con algunas aplicaciones utilizando lenguajes de programación como MATLAB,Python y R." />
+  <meta name="generator" content="bookdown 0.34.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Funciones Reales | Matemática para Ingenieros" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Es este curso de análisis matemática se van a abordar temas como funciones,limites,derivadas con algunas aplicaciones utilizando lenguajes de programación como MATLAB,Python y R." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Funciones Reales | Matemática para Ingenieros" />
+  
+  <meta name="twitter:description" content="Es este curso de análisis matemática se van a abordar temas como funciones,limites,derivadas con algunas aplicaciones utilizando lenguajes de programación como MATLAB,Python y R." />
+  
+
+<meta name="author" content="Alex Rocha" />
+
+
+<meta name="date" content="2023-05-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="limites-y-continuidad.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Matemática para Ingenieros</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preliminares</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#par-ordenado"><i class="fa fa-check"></i><b>0.1</b> Par ordenado</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#igualdad-de-pares-ordenados"><i class="fa fa-check"></i><b>0.2</b> Igualdad De Pares Ordenados</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#producto-cartesiano-de-conjuntos"><i class="fa fa-check"></i><b>0.3</b> Producto Cartesiano De Conjuntos</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#propiedades-del-producto-cartesiano"><i class="fa fa-check"></i><b>0.4</b> Propiedades del Producto Cartesiano</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#relación"><i class="fa fa-check"></i><b>0.5</b> Relación</a>
+<ul>
+<li class="chapter" data-level="0.5.1" data-path="index.html"><a href="index.html#introducción-para-entender"><i class="fa fa-check"></i><b>0.5.1</b> Introducción para entender</a></li>
+<li class="chapter" data-level="0.5.2" data-path="index.html"><a href="index.html#relación-binaria"><i class="fa fa-check"></i><b>0.5.2</b> Relación Binaria</a></li>
+<li class="chapter" data-level="0.5.3" data-path="index.html"><a href="index.html#dominio-de-una-relación-binaria"><i class="fa fa-check"></i><b>0.5.3</b> Dominio de una Relación Binaria</a></li>
+<li class="chapter" data-level="0.5.4" data-path="index.html"><a href="index.html#rango-de-una-relación-binaria"><i class="fa fa-check"></i><b>0.5.4</b> Rango de una Relación Binaria</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="funciones-reales.html"><a href="funciones-reales.html"><i class="fa fa-check"></i><b>1</b> Funciones Reales</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="funciones-reales.html"><a href="funciones-reales.html#conceptos-importantes"><i class="fa fa-check"></i><b>1.1</b> Conceptos Importantes</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="funciones-reales.html"><a href="funciones-reales.html#definición-de-una-función-para-matemáticos."><i class="fa fa-check"></i><b>1.1.1</b> Definición de una Función para matemáticos.</a></li>
+<li class="chapter" data-level="1.1.2" data-path="funciones-reales.html"><a href="funciones-reales.html#definición-de-una-función-para-no-matemáticos."><i class="fa fa-check"></i><b>1.1.2</b> Definición de una Función para no matemáticos.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="funciones-reales.html"><a href="funciones-reales.html#tipos-de-funciones"><i class="fa fa-check"></i><b>1.2</b> Tipos de Funciones</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="funciones-reales.html"><a href="funciones-reales.html#función-lineal"><i class="fa fa-check"></i><b>1.2.1</b> Función Lineal</a></li>
+<li class="chapter" data-level="1.2.2" data-path="funciones-reales.html"><a href="funciones-reales.html#función-cuadrática"><i class="fa fa-check"></i><b>1.2.2</b> Función Cuadrática</a></li>
+<li class="chapter" data-level="1.2.3" data-path="funciones-reales.html"><a href="funciones-reales.html#funciones-polinómicas"><i class="fa fa-check"></i><b>1.2.3</b> Funciones polinómicas</a></li>
+<li class="chapter" data-level="1.2.4" data-path="funciones-reales.html"><a href="funciones-reales.html#funcion-raíz-cuadrada"><i class="fa fa-check"></i><b>1.2.4</b> Funcion Raíz Cuadrada</a></li>
+<li class="chapter" data-level="1.2.5" data-path="funciones-reales.html"><a href="funciones-reales.html#función-valor-absoluto"><i class="fa fa-check"></i><b>1.2.5</b> Función Valor Absoluto</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="funciones-reales.html"><a href="funciones-reales.html#álgebra-de-funciones"><i class="fa fa-check"></i><b>1.3</b> Álgebra de Funciones</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="limites-y-continuidad.html"><a href="limites-y-continuidad.html"><i class="fa fa-check"></i><b>2</b> Limites y Continuidad</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="limites-y-continuidad.html"><a href="limites-y-continuidad.html#propiedad"><i class="fa fa-check"></i><b>2.1</b> Propiedad</a></li>
+<li class="chapter" data-level="2.2" data-path="limites-y-continuidad.html"><a href="limites-y-continuidad.html#criterio-del-cociente"><i class="fa fa-check"></i><b>2.2</b> Criterio del Cociente</a></li>
+<li class="chapter" data-level="2.3" data-path="limites-y-continuidad.html"><a href="limites-y-continuidad.html#limites-con-raíces"><i class="fa fa-check"></i><b>2.3</b> Limites con raíces</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="la-derivada.html"><a href="la-derivada.html"><i class="fa fa-check"></i><b>3</b> La Derivada</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="la-derivada.html"><a href="la-derivada.html#derivada-simple"><i class="fa fa-check"></i><b>3.1</b> Derivada simple</a></li>
+<li class="chapter" data-level="3.2" data-path="la-derivada.html"><a href="la-derivada.html#regla-de-la-cadena"><i class="fa fa-check"></i><b>3.2</b> Regla de la cadena</a></li>
+<li class="chapter" data-level="3.3" data-path="la-derivada.html"><a href="la-derivada.html#gradiente-de-una-función"><i class="fa fa-check"></i><b>3.3</b> Gradiente de una función</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="integrales.html"><a href="integrales.html"><i class="fa fa-check"></i><b>4</b> Integrales</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="integrales.html"><a href="integrales.html#aproximación-del-área-de-una-región-por-área-de-rectángulos."><i class="fa fa-check"></i><b>4.1</b> Aproximación del área de una región por área de rectángulos.</a></li>
+<li class="chapter" data-level="4.2" data-path="integrales.html"><a href="integrales.html#integral-indefinida"><i class="fa fa-check"></i><b>4.2</b> Integral indefinida</a></li>
+<li class="chapter" data-level="4.3" data-path="integrales.html"><a href="integrales.html#formula-de-integración"><i class="fa fa-check"></i><b>4.3</b> Formula de integración</a></li>
+<li class="chapter" data-level="4.4" data-path="integrales.html"><a href="integrales.html#teorema-fundamental-del-cálculo"><i class="fa fa-check"></i><b>4.4</b> Teorema fundamental del cálculo</a></li>
+<li class="chapter" data-level="4.5" data-path="integrales.html"><a href="integrales.html#integral-doble"><i class="fa fa-check"></i><b>4.5</b> Integral doble</a></li>
+<li class="chapter" data-level="4.6" data-path="integrales.html"><a href="integrales.html#integral-triple"><i class="fa fa-check"></i><b>4.6</b> Integral triple</a></li>
+<li class="chapter" data-level="4.7" data-path="integrales.html"><a href="integrales.html#circulación-del-campo-vectorial"><i class="fa fa-check"></i><b>4.7</b> Circulación del campo vectorial</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i>Bibliografía</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Matemática para Ingenieros</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="funciones-reales" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Funciones Reales<a href="funciones-reales.html#funciones-reales" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>El concepto de <strong>función</strong> es uno de los más importantes en todas las matemáticas.</p>
+<div id="conceptos-importantes" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Conceptos Importantes<a href="funciones-reales.html#conceptos-importantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="definición-de-una-función-para-matemáticos." class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Definición de una Función para matemáticos.<a href="funciones-reales.html#definición-de-una-función-para-matemáticos." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> dos conjuntos .Una función <span class="math inline">\(f\)</span> de <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span>,denotada <span class="math inline">\(f:A \rightarrow B\)</span>, es una relación en <span class="math inline">\(A\times B\)</span> tal que si <span class="math inline">\(afb_1\)</span>, <span class="math inline">\(afb_2\)</span>, entonces <span class="math inline">\(b_1=b_2\)</span>. <span class="citation">(<a href="#ref-Diaz2007">Diaz 2007</a>)</span></p>
+</div>
+<div id="definición-de-una-función-para-no-matemáticos." class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Definición de una Función para no matemáticos.<a href="funciones-reales.html#definición-de-una-función-para-no-matemáticos." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consideremos dos conjuntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, a la relación binaria <span class="math inline">\(f\)</span> de <span class="math inline">\(A\)</span> en <span class="math inline">\(B\)</span> le llamaremos <span style="color: red;">función de A en B </span>,si y solo si , verifica:<span class="citation">(<a href="#ref-Ramos2002">Espinoza 2002</a>,p 215)</span></p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(f \subset A \times B\)</span></p></li>
+<li><p><span class="math inline">\((a,b) \in f \wedge (a,c) \in f \Rightarrow b=c\)</span></p></li>
+</ol>
+<ul>
+<li><p>Ejemplo 1: Sean <span class="math inline">\(A=\left \{ Alumnos\ de\  la\  UTP \right \}\)</span>, <span class="math inline">\(B=\left \{ Números \  enteros \right \}\)</span>.</p>
+<ul>
+<li>Como ejemplo de función, tenemos <span class="math inline">\(f:A \rightarrow B\)</span> que a cada <span class="math inline">\(x \in A\)</span> asocia su año de nacimiento.</li>
+</ul>
+<p><span style="color: red;">Obs: Cada alumno solo tiene un único año de nacimiento</span></p>
+<ul>
+<li>Otro ejemplo es la función <span class="math inline">\(g:A \rightarrow B\)</span> que a cada <span class="math inline">\(x \in A\)</span> asocia su año de ingreso en la UTP.</li>
+</ul>
+<p><span style="color: red;">Obs: Cada alumno solo tiene un único año de ingreso</span></p></li>
+<li><p>Ejemplo 2: Sea <span class="math inline">\(A=\left \{Personas\right \}\)</span>.Si a cada <span class="math inline">\(x \in A\)</span> hacemos corresponder <span class="math inline">\(f(x) \in A\)</span> de manera que <span class="math inline">\(f(x)\)</span> sea hermano de <span class="math inline">\(x\)</span> ,entonces <span class="math inline">\(f\)</span> no es una función por dos razones.</p>
+<ul>
+<li>Primero por excepción pues no toda personas tiene hermano(a).</li>
+<li>Segundo por que existen personas que tienen más de un hermano(a).</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="tipos-de-funciones" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Tipos de Funciones<a href="funciones-reales.html#tipos-de-funciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="función-lineal" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Función Lineal<a href="funciones-reales.html#función-lineal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A la función f,le llamaremos <strong>función lineal</strong>, si su regla de correspondencia es:
+<span class="math display">\[f(x)=ax+b\]</span>
+donde <span class="math inline">\(a,b\)</span> son constantes y <span class="math inline">\(a\neq 0\)</span>.</p>
+<p>Graficaremos con la el paquete ggplot2 en R studio la función <span class="math inline">\(f(x)=2x+1\)</span> veremos que la intersección con el eje <span class="math inline">\(Y\)</span> es <span class="math inline">\(b=1\)</span>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="funciones-reales.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="funciones-reales.html#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="funciones-reales.html#cb1-3" tabindex="-1"></a>lineal <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-4"><a href="funciones-reales.html#cb1-4" tabindex="-1"></a>  <span class="dv">2</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb1-5"><a href="funciones-reales.html#cb1-5" tabindex="-1"></a>}</span>
+<span id="cb1-6"><a href="funciones-reales.html#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="funciones-reales.html#cb1-7" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb1-8"><a href="funciones-reales.html#cb1-8" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">lineal</span>(x)</span>
+<span id="cb1-9"><a href="funciones-reales.html#cb1-9" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="funciones-reales.html#cb1-10" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
+<span id="cb1-11"><a href="funciones-reales.html#cb1-11" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="funciones-reales.html#cb1-12" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="funciones-reales.html#cb1-13" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="función-cuadrática" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Función Cuadrática<a href="funciones-reales.html#función-cuadrática" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A la función f, le llamaremos función cuadrática, si su regla de corresponencia es:
+<span class="math display">\[f(x)=ax^2+bx+c\ \ ,\ \ \ a,b,c \in \mathbb{R} ,a\neq 0\]</span><br />
+Graficaremos con la función curve() que viene por defecto en R la función <span class="math inline">\(f(x)=x^2\)</span>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="funciones-reales.html#cb2-1" tabindex="-1"></a><span class="co"># Definir la función cuadrática</span></span>
+<span id="cb2-2"><a href="funciones-reales.html#cb2-2" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb2-3"><a href="funciones-reales.html#cb2-3" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb2-4"><a href="funciones-reales.html#cb2-4" tabindex="-1"></a>}</span>
+<span id="cb2-5"><a href="funciones-reales.html#cb2-5" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="funciones-reales.html#cb2-6" tabindex="-1"></a><span class="co"># Graficar la función cuadrática</span></span>
+<span id="cb2-7"><a href="funciones-reales.html#cb2-7" tabindex="-1"></a><span class="fu">curve</span>(f, <span class="at">from =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">to =</span> <span class="dv">10</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="funciones-polinómicas" class="section level3 hasAnchor" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Funciones polinómicas<a href="funciones-reales.html#funciones-polinómicas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A la función <span class="math inline">\(f\)</span>, le llamaremos <strong>función polinomial</strong> o <strong>función polinómica</strong>, si su regla de correspondencia es:<br />
+<span class="math display">\[f(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots +a_1x+a_0, \ x\in \mathbb{R}\]</span>
+donde <span class="math inline">\(a_0,a_1,a_2, \cdots ,a_{n-1},a_n\)</span> son números reales, <span class="math inline">\(a_n\neq 0\)</span>.</p>
+<p>Graficaremos con la función curve() que viene por defecto en R la función <span class="math inline">\(f(x) = x^3 + 4x^2 + 5x + 6\)</span></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="funciones-reales.html#cb3-1" tabindex="-1"></a><span class="co"># Definir la función cúbica</span></span>
+<span id="cb3-2"><a href="funciones-reales.html#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="funciones-reales.html#cb3-3" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb3-4"><a href="funciones-reales.html#cb3-4" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">3</span> <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">5</span><span class="sc">*</span>x <span class="sc">+</span> <span class="dv">6</span></span>
+<span id="cb3-5"><a href="funciones-reales.html#cb3-5" tabindex="-1"></a>}</span>
+<span id="cb3-6"><a href="funciones-reales.html#cb3-6" tabindex="-1"></a><span class="co"># Graficar la función cúbica</span></span>
+<span id="cb3-7"><a href="funciones-reales.html#cb3-7" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="funciones-reales.html#cb3-8" tabindex="-1"></a><span class="fu">curve</span>(f, <span class="at">from =</span> <span class="sc">-</span><span class="dv">100</span>, <span class="at">to =</span> <span class="dv">100</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="funcion-raíz-cuadrada" class="section level3 hasAnchor" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> Funcion Raíz Cuadrada<a href="funciones-reales.html#funcion-raíz-cuadrada" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A la función <span class="math inline">\(f\)</span>,le llamaremos función raíz cuadrada, si su regla de correspondencia es:
+<span class="math display">\[f(x)=\sqrt x\]</span><br />
+Graficaremos con la función plot() que viene por defecto en R la función <span class="math inline">\(f(x) = \sqrt {2x}\)</span></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="funciones-reales.html#cb4-1" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>x)</span>
+<span id="cb4-2"><a href="funciones-reales.html#cb4-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb4-3"><a href="funciones-reales.html#cb4-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">f</span>(x)</span>
+<span id="cb4-4"><a href="funciones-reales.html#cb4-4" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="función-valor-absoluto" class="section level3 hasAnchor" number="1.2.5">
+<h3><span class="header-section-number">1.2.5</span> Función Valor Absoluto<a href="funciones-reales.html#función-valor-absoluto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A la función <span class="math inline">\(f\)</span>, le llamaremos función valor absoluto, si su regla de correspondencia es:
+<span class="math display">\[f(x) =|x|= \begin{cases}
+    x &amp; \text{si } x \geq 0 \\
+    -x &amp; \text{si } x &lt; 0
+\end{cases}\]</span></p>
+<p>Graficaremos con la función plot() que viene por defecto en R la función <span class="math inline">\(f(x) =|x|}\)</span></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="funciones-reales.html#cb5-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb5-2"><a href="funciones-reales.html#cb5-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">abs</span>(x)</span>
+<span id="cb5-3"><a href="funciones-reales.html#cb5-3" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+</div>
+<div id="álgebra-de-funciones" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Álgebra de Funciones<a href="funciones-reales.html#álgebra-de-funciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Se pueden realizar cinco tipos de operaciones diferentes con funciones:<strong>suma, resta, producto, división y composición</strong>. Es decir, dos funciones pueden ser sumadas, restadas, multiplicadas, divididas o compuestas.<a href="https://www.funciones.xyz/operaciones-con-funciones-suma-resta-producto-division/">Puede visitar</a></p>
+<ol style="list-style-type: decimal">
+<li><strong>Suma de funciones</strong></li>
+</ol>
+<p>El valor de la suma de dos funciones es igual a la suma del valor de cada función. Es decir, para calcular la imagen de una función suma basta con sumar las imágenes de las funciones que intervienen en la operación.
+<span class="math display">\[ (f+g)(x)=f(x)+g(x)\]</span>
+Además, el dominio de la suma de dos funciones es la intersección del dominio de cada función sumada
+<span class="math display">\[Dom(f+g)=Dom(f) \cap Dom(g)\]</span>
+Veamos cómo se suman dos funciones mediante un ejemplo: <span class="math inline">\(f(x)=-x+1\)</span> y <span class="math inline">\(g(x)=\sqrt x\)</span> .Graficar <span class="math inline">\((f+g)(x)\)</span>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="funciones-reales.html#cb6-1" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb6-2"><a href="funciones-reales.html#cb6-2" tabindex="-1"></a>  <span class="sc">-</span>x<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb6-3"><a href="funciones-reales.html#cb6-3" tabindex="-1"></a>}</span>
+<span id="cb6-4"><a href="funciones-reales.html#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="funciones-reales.html#cb6-5" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb6-6"><a href="funciones-reales.html#cb6-6" tabindex="-1"></a>  <span class="fu">sqrt</span>(x)</span>
+<span id="cb6-7"><a href="funciones-reales.html#cb6-7" tabindex="-1"></a>}</span>
+<span id="cb6-8"><a href="funciones-reales.html#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="funciones-reales.html#cb6-9" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb6-10"><a href="funciones-reales.html#cb6-10" tabindex="-1"></a>  <span class="fu">f</span>(x) <span class="sc">+</span> <span class="fu">g</span>(x)</span>
+<span id="cb6-11"><a href="funciones-reales.html#cb6-11" tabindex="-1"></a>}</span>
+<span id="cb6-12"><a href="funciones-reales.html#cb6-12" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="funciones-reales.html#cb6-13" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb6-14"><a href="funciones-reales.html#cb6-14" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="funciones-reales.html#cb6-15" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="fu">h</span>(x), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Primero sumamos las dos funciones:</p>
+<p><span class="math display">\[(f+g)(x)=f(x)+g(x)=-x+1+\sqrt x\]</span>
+Y ahora hallamos el dominio de la función suma. Para ello, calculamos el dominio de cada función por separado:</p>
+<ul>
+<li><span class="math inline">\(Dom(f)=\mathbb{R}\)</span> y <span class="math inline">\(Dom(g)=\left [ 0, +\infty \right &gt;\)</span>
+entonces, el dominio de la función resultante de la operación será:
+<span class="math display">\[Dom(f+g)=Dom(f) \cap Dom(g)=\left [ 0, +\infty \right &gt;\]</span></li>
+</ul>
+<p>Toda operación con funciones debe acompañarse de su dominio para definir completamente el resultado.</p>
+<ul>
+<li>Ejemplo1:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="funciones-reales.html#cb7-1" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb7-2"><a href="funciones-reales.html#cb7-2" tabindex="-1"></a>  <span class="sc">-</span>x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb7-3"><a href="funciones-reales.html#cb7-3" tabindex="-1"></a>}</span>
+<span id="cb7-4"><a href="funciones-reales.html#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="funciones-reales.html#cb7-5" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb7-6"><a href="funciones-reales.html#cb7-6" tabindex="-1"></a>  <span class="fu">exp</span>(x)</span>
+<span id="cb7-7"><a href="funciones-reales.html#cb7-7" tabindex="-1"></a>}</span>
+<span id="cb7-8"><a href="funciones-reales.html#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="funciones-reales.html#cb7-9" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb7-10"><a href="funciones-reales.html#cb7-10" tabindex="-1"></a>  <span class="fu">f</span>(x) <span class="sc">+</span> <span class="fu">g</span>(x)</span>
+<span id="cb7-11"><a href="funciones-reales.html#cb7-11" tabindex="-1"></a>}</span>
+<span id="cb7-12"><a href="funciones-reales.html#cb7-12" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="funciones-reales.html#cb7-13" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb7-14"><a href="funciones-reales.html#cb7-14" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="funciones-reales.html#cb7-15" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="fu">h</span>(x), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+* Ejemplo2:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="funciones-reales.html#cb8-1" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb8-2"><a href="funciones-reales.html#cb8-2" tabindex="-1"></a>  <span class="sc">-</span><span class="fu">log</span>(x)</span>
+<span id="cb8-3"><a href="funciones-reales.html#cb8-3" tabindex="-1"></a>}</span>
+<span id="cb8-4"><a href="funciones-reales.html#cb8-4" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="funciones-reales.html#cb8-5" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb8-6"><a href="funciones-reales.html#cb8-6" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">3</span></span>
+<span id="cb8-7"><a href="funciones-reales.html#cb8-7" tabindex="-1"></a>}</span>
+<span id="cb8-8"><a href="funciones-reales.html#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="funciones-reales.html#cb8-9" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb8-10"><a href="funciones-reales.html#cb8-10" tabindex="-1"></a>  <span class="fu">f</span>(x) <span class="sc">+</span> <span class="fu">g</span>(x)</span>
+<span id="cb8-11"><a href="funciones-reales.html#cb8-11" tabindex="-1"></a>}</span>
+<span id="cb8-12"><a href="funciones-reales.html#cb8-12" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="funciones-reales.html#cb8-13" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb8-14"><a href="funciones-reales.html#cb8-14" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="funciones-reales.html#cb8-15" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="fu">h</span>(x), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre><code>2. **Resta de funciones**  
+La imagen de la resta (o diferencia) de dos funciones es la resta de las imágenes de cada función que participa en la operación:  
+$$ (f-g)(x)=f(x)-g(x)$$
+Igual que con la función suma, el dominio de la resta de dos funciones es equivalente a la intersección del dominio de cada función.
+$$Dom(f-g)=Dom(f) \cap Dom(g)$$  
+De manera que si una función no está definida en algún valor de la variable independiente x, tampoco lo estará la función resultante de la resta.    
+
+Veamos cómo se restan dos funciones a través de un ejemplo: $f(x)=-x+1$ y $g(x)=\sqrt x$ .Graficar $(f+g)(x)$.
+
+
+```r
+f &lt;- function(x) {
+  -x+1
+}
+
+g &lt;- function(x) {
+  sqrt(x+1)
+}
+
+h &lt;- function(x) {
+  f(x) - g(x)
+}
+
+x &lt;- seq(-1, 10, length.out = 100)
+
+plot(x, h(x), type = &quot;l&quot;, col = &quot;red&quot;, lwd = 2)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Primero restamos las dos funciones:<br />
+<span class="math display">\[(f-g)(x)=f(x)-g(x)=-x+1-\sqrt {x+1}\]</span>
+Y luego determinamos el dominio de la función resta: <span class="math inline">\(Dom(f)=\mathbb{R}\)</span> y <span class="math inline">\(Dom(g)=\left [ -1, +\infty \right &gt;\)</span> entonces, el dominio de la función resultante de la operación será:</p>
+<p><span class="math display">\[Dom(f-g)=Dom(f) \cap Dom(g)=\left [ -1, +\infty \right &gt;\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Producto de funciones</strong></li>
+</ol>
+<p>Para calcular el producto o (multiplicación) de dos funciones, simplemente debemos multiplicar las expresiones de cada función.<br />
+<span class="math display">\[(f.g)(x)=f(x).g(x)\]</span>
+Por otro lado, el dominio de la función producto es el conjunto intersección del dominio de cada función multiplicada.</p>
+<p><span class="math display">\[Dom(f.g)=Dom(f) \cap Dom(g)\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>División de funciones</strong>
+El resultado numérico de una división (o cociente) de dos funciones corresponde a la siguiente ecuación:</li>
+</ol>
+<p><span class="math display">\[( \frac{f}{g} )(x)=\frac{f(x)}{g(x)}\]</span><br />
+Sin embargo, el dominio de la división de dos funciones es el conjunto intersección del dominio de cada función menos todas las x que anulan la función que actúa como divisor, ya que si no obtendríamos una indeterminación.</p>
+<p><span class="math display">\[Dom(\frac{f}{g})(x)=Dom(f) \cap Dom(g)-\left \{ x\mid g(x)=0) \right \}\]</span></p>
+<ol start="5" style="list-style-type: decimal">
+<li><strong>Composición de funciones</strong></li>
+</ol>
+<p>La composición de funciones es la operación más difícil de resolver, porque es el concepto más complicado.</p>
+<p>La composición de funciones consiste en la aplicación sucesiva de dos funciones. Algebraicamente, la composición de dos funciones se expresa de la siguiente manera:<br />
+<span class="math display">\[(g \circ f)(x)=g(f(x))\]</span>
+Por otro lado, el dominio de la composición de funciones <span class="math inline">\((g \circ f)(x)\)</span> equivale al conjunto de todos los valores de x en el dominio de la función <span class="math inline">\(f\)</span> tal que <span class="math inline">\(f(x)\)</span> pertenece al dominio de la función <span class="math inline">\(g\)</span>. <span class="math display">\[Dom(g \circ f)=\left \{x \in Dom(f) \mid f(x) \in Dom(g)  \right \}\]</span></p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Diaz2007" class="csl-entry">
+Diaz, Luis. 2007. <em>Medida e Integral de Haar</em>. México: Instituto Politécnico Nacional. <a href="https://www.repositoriodigital.ipn.mx/handle/123456789/5900">https://www.repositoriodigital.ipn.mx/handle/123456789/5900</a>.
+</div>
+<div id="ref-Ramos2002" class="csl-entry">
+Espinoza, Eduardo. 2002. <em><a href="">Análisis Matemático 1</a></em>. 3ra ed. Lima,Perú.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="limites-y-continuidad.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
